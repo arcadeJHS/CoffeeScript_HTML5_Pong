@@ -1,5 +1,7 @@
 Pong
 ==============
-A HTML5 porting, written in CoffeeScript.
+A HTML5 porting of the classic arcade Pong, written in CoffeeScript.
+
 Project start up. A lot of work needed.
-Demo: to come.
+
+Demo: http://matteopiazza.org/pong
