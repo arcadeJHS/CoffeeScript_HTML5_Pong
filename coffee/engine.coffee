@@ -1,7 +1,7 @@
 Engine =
 	keysDown: {}		
 
-	animate: (callback) -> 
+	animate: -> window::requestAnimationFrame ?= window::webkitRequestAnimationFrame ?= window::mozRequestAnimationFrame ?= (callback) -> 
 		window.setTimeout callback, 1000/60
 		
 	init: (canvasW, canvasH) ->
