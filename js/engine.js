@@ -2,11 +2,8 @@ var Engine;
 
 Engine = {
   keysDown: {},
-  animate: function() {
-    var _base, _base1, _base2;
-    return (_base = window.prototype).requestAnimationFrame != null ? (_base = window.prototype).requestAnimationFrame : _base.requestAnimationFrame = (_base1 = window.prototype).webkitRequestAnimationFrame != null ? (_base1 = window.prototype).webkitRequestAnimationFrame : _base1.webkitRequestAnimationFrame = (_base2 = window.prototype).mozRequestAnimationFrame != null ? (_base2 = window.prototype).mozRequestAnimationFrame : _base2.mozRequestAnimationFrame = function(callback) {
-      return window.setTimeout(callback, 1000 / 60);
-    };
+  animate: function(callback) {
+    return window.setTimeout(callback, 1000 / 60);
   },
   init: function(canvasW, canvasH) {
     var _ref;
