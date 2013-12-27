@@ -9,7 +9,10 @@ class Ball
 		
 	render: ->
 		Engine.ctx.fillStyle = "#fff"
-		Engine.ctx.fillRect @x, @y, @width, @height
+		y = @y
+		while y < @y+@height
+			Engine.ctx.fillRect @x, y, @width, 1
+			y += 2
 		
 	update: (paddle1, paddle2) ->
 		# ball movement

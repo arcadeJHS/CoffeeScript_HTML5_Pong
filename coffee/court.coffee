@@ -8,8 +8,11 @@ Court =
 		@gameH = gameH
 
 	render: ->
+		Engine.ctx.fillStyle = "#fff"
 		y = @net_y 
-		while y < @gameH			
-			Engine.ctx.fillStyle = "#fff"
+		while y < @gameH						
 			Engine.ctx.fillRect @gameW/2-@net_width, y, @net_width, @net_step_length
 			y += (@net_step_length + @net_jump)
+
+
+		
