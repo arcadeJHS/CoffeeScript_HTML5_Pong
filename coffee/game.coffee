@@ -1,14 +1,15 @@
 Game =
-	gameW: 600
-	gameH: 400
+	gameW: 750
+	gameH: 510
 
 	init: ->		
-		paddleW = 20
-		paddleH = 100
+		paddleW = 10
+		paddleH = 32
 		Engine.init @gameW, @gameH
-		@ball = new Ball (@gameW/2 - paddleW/2), (@gameH/2 - paddleW/2), paddleW, paddleW
-		@player = new Player 20, (@gameH/2 - paddleH/2), paddleW, paddleH
-		@cpu = new CPU 560, (@gameH/2 - paddleH/2), paddleW, paddleH		
+		Court.init @gameW, @gameH
+		@ball = new Ball (@gameW/2 - paddleW/2), (@gameH/2 - paddleW/2), 10, 10
+		@player = new Player 100, (@gameH/2 - paddleH/2), paddleW, paddleH
+		@cpu = new CPU (@gameW - 100-paddleW), (@gameH/2 - paddleH/2), paddleW, paddleH		
 		Game.loop()
 		
 	update: ->
@@ -18,7 +19,7 @@ Game =
 		
 	draw: ->
 		Engine.clear()
-		@drawNet()
+		Court.render()
 		@player.render()
 		@cpu.render()
 		@ball.render()

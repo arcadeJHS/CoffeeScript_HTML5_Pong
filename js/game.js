@@ -1,16 +1,17 @@
 var Game;
 
 Game = {
-  gameW: 600,
-  gameH: 400,
+  gameW: 750,
+  gameH: 510,
   init: function() {
     var paddleH, paddleW;
-    paddleW = 20;
-    paddleH = 100;
+    paddleW = 10;
+    paddleH = 32;
     Engine.init(this.gameW, this.gameH);
-    this.ball = new Ball(this.gameW / 2 - paddleW / 2, this.gameH / 2 - paddleW / 2, paddleW, paddleW);
-    this.player = new Player(20, this.gameH / 2 - paddleH / 2, paddleW, paddleH);
-    this.cpu = new CPU(560, this.gameH / 2 - paddleH / 2, paddleW, paddleH);
+    Court.init(this.gameW, this.gameH);
+    this.ball = new Ball(this.gameW / 2 - paddleW / 2, this.gameH / 2 - paddleW / 2, 10, 10);
+    this.player = new Player(100, this.gameH / 2 - paddleH / 2, paddleW, paddleH);
+    this.cpu = new CPU(this.gameW - 100 - paddleW, this.gameH / 2 - paddleH / 2, paddleW, paddleH);
     return Game.loop();
   },
   update: function() {
@@ -20,7 +21,7 @@ Game = {
   },
   draw: function() {
     Engine.clear();
-    this.drawNet();
+    Court.render();
     this.player.render();
     this.cpu.render();
     return this.ball.render();
