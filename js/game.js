@@ -26,17 +26,6 @@ Game = {
     this.cpu.render();
     return this.ball.render();
   },
-  drawNet: function() {
-    var y, _results;
-    y = -15;
-    _results = [];
-    while (y < this.gameH) {
-      Engine.ctx.fillStyle = "#fff";
-      Engine.ctx.fillRect(this.gameW / 2 - 5, y, 10, 30);
-      _results.push(y += 40);
-    }
-    return _results;
-  },
   loop: function() {
     Game.update();
     Game.draw();

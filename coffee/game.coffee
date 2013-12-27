@@ -24,13 +24,6 @@ Game =
 		@cpu.render()
 		@ball.render()
 
-	drawNet: ->
-		y = -15
-		while y < @gameH 
-			Engine.ctx.fillStyle = "#fff"
-			Engine.ctx.fillRect @gameW/2-5, y, 10, 30
-			y += 40
-
 	loop: ->
 		Game.update()
 		Game.draw()
