@@ -26,5 +26,14 @@ Engine = {
     return window.addEventListener("keyup", function(event) {
       return delete _this.keysDown[event.keyCode];
     });
+  },
+  drawCRT: function(x, y, width, height) {
+    var _results;
+    _results = [];
+    while (y < height) {
+      Engine.ctx.fillRect(x, y, width, 1);
+      _results.push(y += 2);
+    }
+    return _results;
   }
 };

@@ -8,7 +8,7 @@ Project start up. A lot of work needed.
 
 The following points need research:
 
-- Shape: paddles, ball, points, and net should be "linear scanner", as an old TV.
+- Shape: paddles, ball, points, and net should be "linear scanner", as an old TV (cathode ray tube effect).
 - About court, net, points, and paddle size... proportions... placement and distance from the edge.
 - When ball appears on screen: random location?
 - Ball bhaviour: similar to original as much as possible.

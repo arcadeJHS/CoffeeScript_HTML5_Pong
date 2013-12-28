@@ -9,10 +9,7 @@ class Paddle
 		
 	render: ->
 		Engine.ctx.fillStyle = "#fff"
-		y = @y
-		while y < @y+@height
-			Engine.ctx.fillRect @x, y, @width, 1
-			y += 2
+		Engine.drawCRT @x, @y, @width, @y+@height
 		
 	move: (x, y) ->
 		@x += x

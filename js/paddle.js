@@ -11,15 +11,8 @@ Paddle = (function() {
   }
 
   Paddle.prototype.render = function() {
-    var y, _results;
     Engine.ctx.fillStyle = "#fff";
-    y = this.y;
-    _results = [];
-    while (y < this.y + this.height) {
-      Engine.ctx.fillRect(this.x, y, this.width, 1);
-      _results.push(y += 2);
-    }
-    return _results;
+    return Engine.drawCRT(this.x, this.y, this.width, this.y + this.height);
   };
 
   Paddle.prototype.move = function(x, y) {

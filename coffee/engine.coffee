@@ -21,3 +21,9 @@ Engine =
 			@keysDown[event.keyCode] = true
 		window.addEventListener "keyup", (event) =>
 			delete @keysDown[event.keyCode]
+
+	# cathode ray tube effect
+	drawCRT: (x, y, width, height) ->
+		while y < height
+			Engine.ctx.fillRect x, y, width, 1
+			y += 2
