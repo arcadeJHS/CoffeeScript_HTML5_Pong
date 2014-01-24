@@ -9,7 +9,7 @@ Game = {
     paddleH = 32;
     Engine.init(this.gameW, this.gameH);
     Court.init(this.gameW, this.gameH);
-    this.ball = new Ball(this.gameW / 2 - paddleW / 2, this.gameH / 2 - paddleW / 2, 10, 10);
+    this.ball = new Ball(this.gameW / 2 - paddleW / 2, this.gameH / 2 - paddleW / 2);
     this.player = new Player(100, this.gameH / 2 - paddleH / 2, paddleW, paddleH);
     this.cpu = new CPU(this.gameW - 100 - paddleW, this.gameH / 2 - paddleH / 2, paddleW, paddleH);
     return Game.loop();
@@ -21,7 +21,8 @@ Game = {
   },
   draw: function() {
     Engine.clear();
-    Court.render();
+    Court.renderNet();
+    Court.renderScore(this.player.score, this.cpu.score);
     this.player.render();
     this.cpu.render();
     return this.ball.render();

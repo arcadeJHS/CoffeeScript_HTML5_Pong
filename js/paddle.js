@@ -8,6 +8,7 @@ Paddle = (function() {
     this.height = height;
     this.x_speed = 0;
     this.y_speed = 0;
+    this.score = 0;
   }
 
   Paddle.prototype.render = function() {

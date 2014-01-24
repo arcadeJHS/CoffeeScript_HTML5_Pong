@@ -1,9 +1,15 @@
 class Ball
-	constructor: (x, y, width, height) ->
+	constructor: (x, y) ->
 		@x = x
 		@y = y
-		@width = width
-		@height = height
+		@width = 10
+		@height = 10
+		@x_speed = 3
+		@y_speed = 0
+
+	reset: ->
+		@x = Engine.canvasW/2
+		@y = Engine.canvasH/2
 		@x_speed = 3
 		@y_speed = 0
 		
@@ -28,23 +34,18 @@ class Ball
 			@y_speed += (paddle1.y_speed / 2)
 			#@x += @x_speed
 
-		# player score
-		if (@x + @width) > Engine.canvasW
-	        @reset()
-
 	    # collision with CPU paddle
 		if  (@x + @width) > paddle2.x && (@x + @width) < (paddle2.x + paddle2.width) && @y >= paddle2.y && @y < (paddle2.y + paddle2.height) 
 	        @x_speed *= -1
 	        @y_speed += (paddle2.y_speed / 2)
 	        #@x += @x_speed
 
-	    # CPU score
-		if @x < 0
+	    # player score
+		if (@x + @width) > Engine.canvasW			
 	        @reset()
+	        paddle1.score += 1
 
-	reset: ->
-		#@x_speed *= -1
-		@x_speed = 3
-		@y_speed = 0
-		@x = Engine.canvasW/2
-		@y = Engine.canvasH/2
+	    # CPU score
+		if @x < 0			
+	        @reset()
+	        paddle2.score += 1

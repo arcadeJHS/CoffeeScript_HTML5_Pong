@@ -6,6 +6,7 @@ class Paddle
 		@height = height
 		@x_speed = 0
 		@y_speed = 0
+		@score = 0
 		
 	render: ->
 		Engine.ctx.fillStyle = "#fff"

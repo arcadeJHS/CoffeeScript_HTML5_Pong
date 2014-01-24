@@ -1,14 +1,21 @@
 var Ball;
 
 Ball = (function() {
-  function Ball(x, y, width, height) {
+  function Ball(x, y) {
     this.x = x;
     this.y = y;
-    this.width = width;
-    this.height = height;
+    this.width = 10;
+    this.height = 10;
     this.x_speed = 3;
     this.y_speed = 0;
   }
+
+  Ball.prototype.reset = function() {
+    this.x = Engine.canvasW / 2;
+    this.y = Engine.canvasH / 2;
+    this.x_speed = 3;
+    return this.y_speed = 0;
+  };
 
   Ball.prototype.render = function() {
     Engine.ctx.fillStyle = "#fff";
@@ -28,23 +35,18 @@ Ball = (function() {
       this.x_speed *= -1;
       this.y_speed += paddle1.y_speed / 2;
     }
-    if ((this.x + this.width) > Engine.canvasW) {
-      this.reset();
-    }
     if ((this.x + this.width) > paddle2.x && (this.x + this.width) < (paddle2.x + paddle2.width) && this.y >= paddle2.y && this.y < (paddle2.y + paddle2.height)) {
       this.x_speed *= -1;
       this.y_speed += paddle2.y_speed / 2;
     }
-    if (this.x < 0) {
-      return this.reset();
+    if ((this.x + this.width) > Engine.canvasW) {
+      this.reset();
+      paddle1.score += 1;
     }
-  };
-
-  Ball.prototype.reset = function() {
-    this.x_speed = 3;
-    this.y_speed = 0;
-    this.x = Engine.canvasW / 2;
-    return this.y = Engine.canvasH / 2;
+    if (this.x < 0) {
+      this.reset();
+      return paddle2.score += 1;
+    }
   };
 
   return Ball;
